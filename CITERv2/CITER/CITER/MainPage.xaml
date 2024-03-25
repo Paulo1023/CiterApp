@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CITER.Pages"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.IsSwipePagingEnabled="true"
+             NavigationPage.HasNavigationBar="false"
+             x:Class="CITER.MainPage"
+            BarTextColor="white"
+            BarBackgroundColor="#ef233c">
+    <!--NavigationPage.HasBackButton="False"-->
+
+    <!--<TabbedPage.ToolbarItems>
+        <ToolbarItem Icon="@drawable/about"  Clicked="InfoClicked" />
+    </TabbedPage.ToolbarItems>-->
+    <local:ActivityPage Title="Activities" IconImageSource="@drawable/history" >
+    </local:ActivityPage>
+    <local:ReviewerPage Title="Reviewers" IconImageSource="@drawable/book" >
+    </local:ReviewerPage>
+    <local:DownloadsPage Title="Downloads" IconImageSource="@drawable/bookmark">
+    </local:DownloadsPage>
+</TabbedPage>

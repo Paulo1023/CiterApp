@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.StartPage"
+             BackgroundColor="#ef233c"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <forms:AnimationView
+                    x:Name="animationView"
+                    Animation="startpage-anim.json"
+                    AnimationSource="AssetOrBundle"
+                    HeightRequest="300"
+                    WidthRequest="300"
+                    AutoPlay="True"
+                    RepeatMode="Infinite"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand" />
+        <StackLayout VerticalOptions="CenterAndExpand" >
+            <Label Text="Welcome to CITER App"
+                   HorizontalTextAlignment="Center"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   Padding="0,10,0,0"
+                   TextColor="White"
+                   xct:ShadowEffect.Color="Black" 
+                   xct:ShadowEffect.OffsetY="10"
+                   xct:ShadowEffect.OffsetX="10"
+                   xct:ShadowEffect.Opacity=".25"
+                   />
+            <Label Text="Learn new skills, understand more things and practice to prepare for IT Exam Certifications"
+                   FontSize="Body"
+                   TextColor="White"
+                   Padding="50,10,50,0"
+                   HorizontalTextAlignment="Center"
+                   xct:ShadowEffect.Color="Black" 
+                   xct:ShadowEffect.OffsetY="10"
+                   xct:ShadowEffect.OffsetX="10"
+                   xct:ShadowEffect.Opacity=".25"
+                   />
+        </StackLayout>
+        <Button Text="Continue "
+                VerticalOptions="End"
+                Padding="20"
+                Margin="40,0,40,30"
+                BackgroundColor="#c1121f"
+                TextColor="White"
+                CornerRadius="45"
+                FontSize="Large"
+                xct:ShadowEffect.Color="Black" 
+                xct:ShadowEffect.OffsetY="5"
+                xct:ShadowEffect.OffsetX="10"
+                BorderWidth="3"
+                BorderColor="#c1121f"
+                Clicked="ContinueBtnClickedAsync"/>
+    </StackLayout>
+</ContentPage>
