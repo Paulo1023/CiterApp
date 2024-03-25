@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="http://rotorgames.com"
+             xmlns:pinch="clr-namespace:Xamarin.Forms.PinchZoomImage;assembly=Xamarin.Forms.PinchZoomImage" 
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.ViewImage"
+             CloseWhenBackgroundIsClicked="True">
+    
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="15"
+                 BackgroundColor="Black">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <pinch:PinchZoom>
+                <pinch:PinchZoom.Content>
+                    <Image Source="{Binding img}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                           Aspect="AspectFit" Margin="0"/>
+                </pinch:PinchZoom.Content>
+            </pinch:PinchZoom>
+
+            <ImageButton Source="@drawable/remove" WidthRequest="40" HeightRequest="40"
+                     VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand"
+                     BackgroundColor="#00FBC1BC" xct:IconTintColorEffect.TintColor="white"
+                         Clicked="CloseClicked"/>
+        </Grid>
+    </StackLayout>
+        
+</pages:PopupPage>

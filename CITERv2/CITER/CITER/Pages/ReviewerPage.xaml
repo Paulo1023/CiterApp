@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.ReviewerPage"
+             BackgroundColor="#E9EAE0">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" BackgroundColor="#ef233c" xct:CornerRadiusEffect.CornerRadius="0,0,30,0" 
+                         VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Margin="10,10,0,0">
+                    
+
+                        <SearchBar Placeholder="Search"
+                           x:Name="searchBar"
+                            HorizontalOptions="FillAndExpand"
+                            PlaceholderColor="DarkGray"
+                           TextColor="White"
+                            xct:CornerRadiusEffect.CornerRadius="30"
+                           xct:IconTintColorEffect.TintColor="White"
+                            BackgroundColor="#c43134" 
+                            MinimumWidthRequest="280"
+                            
+                            TextChanged="SearchBar_TextChanged"/>
+
+                    <ImageButton Source="@drawable/manual" 
+                             Margin="10,0,25,0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="End"
+                             BackgroundColor="#00FBC1BC"
+                             xct:TouchEffect.NativeAnimation="False"
+                             Padding="0,2,2,2"
+                             Clicked="AboutClicked"
+                             xct:IconTintColorEffect.TintColor="White"/>
+ 
+                </StackLayout>
+
+                <Label Text="Topics" FontSize="Title" Margin="35,0,0,0" FontAttributes="Bold" TextColor="White"/>
+                <StackLayout  Orientation="Horizontal" BackgroundColor="#00FBC1BC" HeightRequest="60">
+
+                    <StackLayout x:Name="filter" Orientation="Horizontal" Margin="40,0,0,10" BackgroundColor="#c43134" Padding="15,0,5,0" xct:CornerRadiusEffect.CornerRadius="30" >
+
+                        <Label Text="{Binding cert}" VerticalOptions="Center" FontSize="Subtitle" FontAttributes="Bold" TextColor="White"/>
+                        <ImageButton Source="@drawable/remove" WidthRequest="30" HeightRequest="30" CornerRadius="15" BackgroundColor="#00FBC1BC" Clicked="RemoveFilter" xct:IconTintColorEffect.TintColor="White"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            
+            
+            <Grid Padding="0,-10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <RefreshView RefreshColor="#2196F3" Refreshing="RefreshView_Refreshing" x:Name="myRefreshView">
+                    <CollectionView x:Name="collectionView"
+                            SelectionMode="None"
+                            VerticalOptions="StartAndExpand"
+                            BackgroundColor="#E9EAE0"
+                            Grid.Row="0"
+                            Margin="0,5,0,0" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate >
+                                <Frame Padding="15,5,15,25" HorizontalOptions="FillAndExpand" BackgroundColor="#00FBC1BC">
+                                    <Grid HeightRequest="180"
+                                          xct:CornerRadiusEffect.CornerRadius="25"
+                                          xct:TouchEffect.NativeAnimation="False"
+                                          BackgroundColor="white"
+                                          xct:ShadowEffect.Color="Black" 
+                                          xct:ShadowEffect.OffsetY="1"
+                                          xct:ShadowEffect.OffsetX="10"
+                                          xct:ShadowEffect.Radius="20" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="4*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TopicClicked" />
+                                        </Grid.GestureRecognizers>
+                                        <Frame Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#006DFF" Padding="0" 
+                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                        </Frame>
+                                        <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                               Padding="25,5,0,0"
+                                               FontSize="22"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"/>
+                                        
+                                    </Grid>
+
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+                                <Label Text="No Results Found" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkGray"/>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </RefreshView>
+                <ImageButton Grid.Row="0" VerticalOptions="End" HorizontalOptions="End"
+                             HeightRequest="64" WidthRequest="64"
+                             Padding="20"
+                             Source="@drawable/sort"
+                             xct:IconTintColorEffect.TintColor="white"
+                             Margin="0,0,15,10" CornerRadius="35"
+                             BackgroundColor="#006DFF" 
+                             Clicked="SortClicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="http://rotorgames.com"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.ManualPage" 
+             CloseWhenBackgroundIsClicked="True">
+
+
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                 Margin="15" xct:CornerRadiusEffect.CornerRadius="15"
+                 BackgroundColor="White" >
+        
+        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" >
+            
+            <Label Text="Swipe down to continue reading. Swipe left and right to go to the next Tutorial" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                       TextColor="Black" Margin="10,5,10,5" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="5">
+            <CarouselView x:Name="carouselView" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Loop="False">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <ScrollView >
+                            <Image Source="{Binding imgSource}" 
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center" 
+                                   Aspect="AspectFill"/>
+                        </ScrollView>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+       
+        </StackLayout>
+        <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" 
+                     Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="StartAndExpand" >
+                <CheckBox HorizontalOptions="Start" x:Name="checkBox" Margin="10,0,0,0"/>
+                <Label Text="Never show again" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand"
+                       TextColor="Black" />
+            </StackLayout>
+            <Button Text="Close" HorizontalOptions="EndAndExpand"
+                    Clicked="CloseClicked"
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    BackgroundColor="white"
+                    TextColor="Maroon"/>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             BackgroundColor="White"
+             x:Class="CITER.Pages.ActivityPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" Padding="20"
+                         HorizontalOptions="FillAndExpand" BackgroundColor="#c43134">
+                <Label Text="History" TextColor="White" HorizontalOptions="CenterAndExpand"
+                       FontSize="Title" FontAttributes="Bold"/>
+            </StackLayout>
+            <CollectionView x:Name="collectionViewActivities"
+                            SelectionMode="None"
+                            VerticalOptions="StartAndExpand"
+                            BackgroundColor="#E9EAE0"
+                            Grid.Row="0"
+                            Margin="0,-6,0,0" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Frame Padding="15,5,15,25" HorizontalOptions="FillAndExpand" BackgroundColor="#00FBC1BC">
+                            <Grid HeightRequest="180"
+                                          xct:CornerRadiusEffect.CornerRadius="25"
+                                          xct:TouchEffect.NativeAnimation="False"
+                                          BackgroundColor="white"
+                                   xct:ShadowEffect.Color="Black" 
+                                   xct:ShadowEffect.OffsetY="1"
+                                   xct:ShadowEffect.OffsetX="10"
+                                  xct:ShadowEffect.Radius="20" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="8*"/>
+                                    <RowDefinition Height="2.5*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="6*" />
+                                    <ColumnDefinition Width="1.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ActivityClicked" />
+                                </Grid.GestureRecognizers>
+                                <Frame Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#006DFF" Padding="0" 
+                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                </Frame>
+                                <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                               Padding="25,5,0,0"
+                                               FontSize="22"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"/>
+                                <ImageButton Source="@drawable/delete"
+                                             Grid.Row="1" Grid.Column="2"
+                                             BackgroundColor="#00FBC1BC"
+                                             Margin="0,0,0,10" 
+                                             Clicked="DeleteClicked"/>
+                            </Grid>
+
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <Label Text="No Results Found" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkGray"/>
+                    </ContentView>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

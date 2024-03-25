@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="CITER.TopicPage"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundColor="#ef233c">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand">
+            <ScrollView Grid.Row="0" Margin="0,0,0,0">
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="Start" HeightRequest="190" BackgroundColor="#ef233c">
+                        <Grid  VerticalOptions="FillAndExpand">
+                            <!--<Image Source="{Binding icon}" Aspect="AspectFill" VerticalOptions="FillAndExpand" Grid.RowSpan="3"
+                           Grid.ColumnSpan="2" xct:CornerRadiusEffect.CornerRadius="0,0,50,50" />-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="4*" />
+                            </Grid.RowDefinitions>
+                            <ImageButton BackgroundColor="#00FBC1BC" xct:IconTintColorEffect.TintColor="Maroon" CornerRadius="25" Grid.Row="0" Grid.Column="0" 
+                                     HorizontalOptions="Start" Source="@drawable/back" Clicked="BackClicked" HeightRequest="38" WidthRequest="38" Margin="20,10,10,0"/>
+                            <Label Text="{Binding title}" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" Margin="15,0,0,15"
+                            TextColor="white" FontSize="Title" FontAttributes="Bold"/>
+                            
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,0,0"  VerticalOptions="FillAndExpand" BackgroundColor="#E9EAE0" xct:CornerRadiusEffect.CornerRadius="30,30,0,0" >
+                        <StackLayout BackgroundColor="#00FBC1BC" VerticalOptions="FillAndExpand" Margin="0,0,0,60">
+                            <Grid Padding="15,15,15,5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding title}" Margin="5,0,0,0" 
+                                       HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                                       FontAttributes="Bold" TextColor="Black" FontSize="Subtitle" LineBreakMode="TailTruncation"/>
+                                <ContentView x:Name="PopupDownloading" Grid.Column="1" Grid.Row="0" VerticalOptions="FillAndExpand" 
+                                         HorizontalOptions="FillAndExpand" BackgroundColor="#00FBC1BC">
+                                    <forms:AnimationView
+                                        x:Name="downloadBtn"
+                                        Clicked="DownloadClicked"
+                                        AnimationSource="AssetOrBundle"
+                                        HeightRequest="50"
+                                        BackgroundColor="#00FBC1BC"
+                                        AutoPlay="True"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand" />
+                                </ContentView>
+                            </Grid>
+                            <Label x:Name="descLabel" Text="{Binding desc}" Padding="20,5,20,20" FontSize="Body" TextColor="Black"/>
+
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <Grid VerticalOptions="End" Grid.Row="0">
+                <Button Text="Open Module" HorizontalOptions="FillAndExpand" VerticalOptions="End" CornerRadius="45" 
+                                    Clicked="OpenReviewerClicked" Margin="5,15,0,15" BackgroundColor="#006DFF" Grid.Column="0" Grid.Row="0"
+                                    TextColor="White" x:Name="moduleBtn"/>
+                <Button Text="Start Mock Test" HorizontalOptions="FillAndExpand" VerticalOptions="End" CornerRadius="45" 
+                                    Clicked="StartMockTestClicked" Margin="5,15,5,15" BackgroundColor="#006DFF" Grid.Column="1" Grid.Row="0"
+                                    TextColor="White"/>
+            </Grid>
+            <ContentView x:Name="PopupLoading" Grid.Row="0" IsVisible="false" VerticalOptions="FillAndExpand" 
+                         HorizontalOptions="FillAndExpand" BackgroundColor="#ef233c">
+                <forms:AnimationView
+                        x:Name="animationView"
+                        Animation="loading.json"
+                        AnimationSource="AssetOrBundle"
+                        HeightRequest="500"
+                        WidthRequest="500"
+                        AutoPlay="True"
+                        BackgroundColor="#ef233c"
+                        RepeatMode="Infinite"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

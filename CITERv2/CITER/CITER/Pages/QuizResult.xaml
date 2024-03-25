@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.QuizResult"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="Start" BackgroundColor="#c43134" Padding="20">
+
+                <Label Text="Result" HorizontalOptions="CenterAndExpand"
+                       TextColor="white" FontSize="Title" FontAttributes="Bold"/>
+            </StackLayout>
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" x:Name="resultCont" Padding="0,0,0,15">
+                    <Label Text="{Binding topicTitle}" VerticalOptions="Start" Margin="25,25,0,0"
+                            TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="Items: 60" VerticalOptions="Start" Margin="25,0,0,0"
+                            TextColor="Gray" FontSize="Medium" />
+                    <Grid VerticalOptions="Center" HorizontalOptions="Center" Margin="0,60,0,40">
+                        <Label Text="Time Consumed" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding Time}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" />
+                        <Label Text="Date" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding Date}" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" />
+                        <Label Text="Score" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label  Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Score}"/>
+                                    <Span Text="/60" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Percentage" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"
+                           Margin="0,5,0,5" TextColor="Black" FontSize="Medium" >
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Percentage}" />
+                                    <Span Text="%" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <Button Text="Review Answer" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="25,0,25,0"
+                    HeightRequest="60" CornerRadius="35" Clicked="BtnReviewAnsClicked" BackgroundColor="#c43134"
+                    TextColor="White"/>
+            <Button Text="Return Home" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="25,0,25,5"
+                    HeightRequest="60" CornerRadius="35" Clicked="BtnReturnClicked" BackgroundColor="#c43134"
+                    TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

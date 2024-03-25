@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns:pages="http://rotorgames.com"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.SortPopup"
+             CloseWhenBackgroundIsClicked="True">
+
+    <StackLayout VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"
+                 xct:CornerRadiusEffect.CornerRadius="25,25,0,0" 
+                 BackgroundColor="White" >
+        <!--<StackLayout.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Up" Swiped="SwipedUp"/>
+        </StackLayout.GestureRecognizers>-->
+
+        <StackLayout Orientation="Vertical" Padding="10,0,10,10" HorizontalOptions="FillAndExpand"
+                     VerticalOptions="StartAndExpand">
+            <Label Text="Filter By:"
+                TextColor="Black" Margin="10,25,0,0"
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="Start" />
+            <StackLayout x:Name="filter" HorizontalOptions="StartAndExpand" xct:CornerRadiusEffect.CornerRadius="25" VerticalOptions="StartAndExpand"
+                         BackgroundColor="LightGray" Padding="15,8,10,8" Orientation="Horizontal"
+                         IsVisible="False" >
+                <Label Text="{Binding provider}" TextColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                       FontAttributes="Bold" />
+                <ImageButton Source="@drawable/remove" HorizontalOptions="End" Clicked="RemoveFilter" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView HeightRequest="220" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                    x:Name="sortCertProv" Orientation="Vertical" Padding="10,0,10,0">
+                
+            </StackLayout>
+        </ScrollView>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,0,0,15" >
+            <Button Text="Cancel" 
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    BackgroundColor="white"
+                    TextColor="Maroon"
+                    Clicked="CancelBtn"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="End" />
+            <Button Text="Apply" 
+                    FontSize="Subtitle"
+                    FontAttributes="Bold"
+                    BackgroundColor="white"
+                    TextColor="Maroon"
+                    Clicked="ApplyBtn"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="End" />
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

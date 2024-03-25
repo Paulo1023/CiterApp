@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="CITER.Pages.QuizPage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Grid.Row="0">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="#006DFF">
+                    <ImageButton BackgroundColor="#00FBC1BC" HeightRequest="32" WidthRequest="32" CornerRadius="25"
+                             HorizontalOptions="StartAndExpand" Source="@drawable/back" Clicked="BackClicked"
+                             xct:TouchEffect.NativeAnimation="True" Margin="25,15,0,15"/>
+                    <Frame BackgroundColor="#00FBC1BC" HorizontalOptions="CenterAndExpand" Padding="0">
+                        <Grid Padding="2" HorizontalOptions="FillAndExpand">
+                            <Label Text="Question" TextColor="white" FontAttributes="Bold"  Padding="1"
+                               FontSize="20" VerticalOptions="Center" Grid.Row="0"/>
+                            <Label TextColor="white" FontAttributes="Bold" FontSize="Body"
+                               HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding questNum}" x:Name="qNum"/>
+                                        <Span Text="/"/>
+                                        <Span Text="60"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+
+                    </Frame>
+                    <Frame WidthRequest="75" Padding="0" BackgroundColor="#00FBC1BC" HorizontalOptions="EndAndExpand">
+                        <Label Text="02:00:00" VerticalOptions="Center"
+                       FontSize="Body" Margin="0,0,15,0" TextColor="white" FontAttributes="Bold">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding TimerHours}" x:Name="val1"/>
+                                    <Span Text=":"/>
+                                    <Span Text="{Binding TimerMinutes}" x:Name="val2"/>
+                                    <Span Text=":"/>
+                                    <Span Text="{Binding TimerSeconds}" x:Name="val3"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Frame>
+                </StackLayout>
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="25,25,25,75" x:Name="questionCont">
+                          
+                            
+
+                        </StackLayout>
+                    </ScrollView>
+                    
+                    <StackLayout Orientation="Horizontal" BackgroundColor="#00FBC1BC" VerticalOptions="End" HorizontalOptions="FillAndExpand" Margin="2,0,2,0">
+                        <Button Text="Prev" HorizontalOptions="Start" BackgroundColor="#006DFF" TextColor="White" x:Name="prevBtn"
+                        Margin="5,5,0,5" xct:CornerRadiusEffect.CornerRadius="25,5,25,5" Clicked="PrevBtnClicked"/>
+                        <Button Text="Submit Answers" HorizontalOptions="FillAndExpand" CornerRadius="5" x:Name="submitBtn"
+                            Margin="0,5,0,5" FontAttributes="Bold" FontSize="17" Clicked="BtnSubmitClicked"
+                            BackgroundColor="#006DFF" TextColor="White" Padding="0,20,0,20"/>
+                        <Button Text="Next" HorizontalOptions="End" BackgroundColor="#006DFF" TextColor="White" x:Name="nextBtn"
+                        Margin="0,5,5,5" xct:CornerRadiusEffect.CornerRadius="5,25,5,25" Clicked="NextBtnClicked"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <ContentView x:Name="PopupLoading" Grid.Row="0" IsVisible="false" VerticalOptions="FillAndExpand" 
+                         HorizontalOptions="FillAndExpand" BackgroundColor="#ef233c">
+                <forms:AnimationView
+                    x:Name="animationView"
+                    Animation="loading.json"
+                    AnimationSource="AssetOrBundle"
+                    HeightRequest="500"
+                    WidthRequest="500"
+                    AutoPlay="True"
+                    BackgroundColor="#ef233c"
+                    RepeatMode="Infinite"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+            </ContentView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

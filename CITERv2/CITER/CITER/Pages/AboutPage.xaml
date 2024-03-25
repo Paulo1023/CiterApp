@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.AboutPage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" Padding="20"
+                         HorizontalOptions="FillAndExpand" BackgroundColor="#ef233c">
+                <ImageButton Source="@drawable/back" BackgroundColor="#00FBC1BC"
+                             Clicked="BackClicked"/>
+            </StackLayout>
+            <ScrollView Margin="0,-6,0,0" VerticalScrollBarVisibility="Never" >
+                <StackLayout VerticalOptions="StartAndExpand" Margin="0,15,0,0">
+                    <Frame VerticalOptions="Start" HorizontalOptions="Center" HeightRequest="96" WidthRequest="96" 
+                           Grid.Row="0" CornerRadius="15" Padding="0" >
+                        <Image Source="@drawable/icon" Aspect="AspectFit" Margin="-15" HeightRequest="100" WidthRequest="100"
+                               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                    </Frame>
+                    <Label Text="CICS IT Exam Reviewer"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="Medium"
+                       FontAttributes="Bold"/>
+                    <Label Text="About"
+                       Margin="10,25,0,0"
+                       FontSize="Body"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+                    <Label Margin="10,0,25,0"
+                       FontSize="15"
+                       TextColor="Gray" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="CICS IT Exam Reviewer (CITER)" FontAttributes="Bold"/>
+                                <Span Text=" is a reviewer app for IT Certifications."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <!--<Label Text="The Topics of each providers that are included in the app are as follow:"
+                       Margin="25,0,0,0"
+                       FontSize="15"
+                       TextColor="Gray"/>
+                    <Label Text="Microsoft"
+                       Margin="25,0,0,0"
+                       FontSize="15"
+                       TextColor="LightSlateGray"
+                       FontAttributes="Bold"/>
+                    <CollectionView x:Name="MicrosoftList" SelectionMode="None" Margin="30,0,0,0" HeightRequest="275">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="• " />
+                                            <Span Text="{Binding Title}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="PhilNITS"
+                       Margin="25,0,0,0"
+                       FontSize="15"
+                       TextColor="LightSlateGray"
+                       FontAttributes="Bold"/>
+                    <CollectionView x:Name="PhilnitsList" SelectionMode="None" Margin="30,0,0,0" HeightRequest="40">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="• " />
+                                            <Span Text="{Binding Title}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <Label Text="CompTIA"
+                       Margin="25,0,0,0"
+                       FontSize="15"
+                       TextColor="LightSlateGray"
+                       FontAttributes="Bold"/>
+                    <CollectionView x:Name="ComptiaList" SelectionMode="None" Margin="30,0,0,0" HeightRequest="215">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="• " />
+                                            <Span Text="{Binding Title}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>-->
+                    
+                    <Label Text="Disclaimer"
+                       Margin="10,25,0,0"
+                       FontSize="Body"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+                    <Label Text="This app is developed and is intended to be used for educational purposes only."
+                       Margin="10,0,0,0"
+                       FontSize="15"
+                       TextColor="Gray"/>
+                    <Label Text="App Version"
+                       Margin="10,25,0,0"
+                       FontSize="Body"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+                    <Label Text="1.0"
+                       Margin="10,0,0,150"
+                       FontSize="15"
+                       TextColor="LightSlateGray"
+                       FontAttributes="Bold"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

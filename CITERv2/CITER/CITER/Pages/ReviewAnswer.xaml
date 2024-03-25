@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="CITER.Pages.ReviewAnswer"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" Padding="20"
+                         HorizontalOptions="FillAndExpand" BackgroundColor="#c43134">
+                <ImageButton Source="@drawable/back" BackgroundColor="#00FBC1BC" HeightRequest="32" WidthRequest="32"
+                             Clicked="BackClicked"/>
+                <Label Text="Review Answer" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" 
+                       FontSize="Body" Margin="0,0,25,0" TextColor="white" FontAttributes="Bold" />
+            </StackLayout>
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" x:Name="questionnairesCont">
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
